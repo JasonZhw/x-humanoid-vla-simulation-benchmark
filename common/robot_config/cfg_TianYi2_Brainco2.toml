@@ -1,0 +1,87 @@
+[robot.config]
+usd_path = './usds/tianyi_2_6d_force_brainco2_hand_v1/tianyi_2_6d_force_brainco2_hand_v1_pitch_17.usd'
+namespace = '/TianYi2'
+init_position = [0.0, 0.0, 0.0]
+init_orientation = [0.0, 0.0, 0.0]
+l_arm_home_pose = [0.259524, 0.11028481, 0.2403924, -1.735622, -1.4694061, -0.33732894, 0.01364803]
+r_arm_home_pose = [0.33150613, -0.27020207, 0.14799793, -1.7323436, 1.2002013, 0.3551929, -0.2500993]
+art_prim = "/base"
+arm_type = "dual"
+
+[robot.joint]
+num_arm_dof = 7
+num_leg_dof = 7
+l_arm_joint_name = [
+    "L_joint_0",
+    "L_joint_1",
+    "L_joint_2",
+    "L_joint_3",
+    "L_joint_4",
+    "L_joint_5",
+    "L_joint_6",
+]
+r_arm_joint_name = [
+    "R_joint_0",
+    "R_joint_1",
+    "R_joint_2",
+    "R_joint_3",
+    "R_joint_4",
+    "R_joint_5",
+    "R_joint_6",
+]
+ee_name = "brainco2"
+l_ee_joint_name = [
+    "left_thumb_metacarpal_joint",
+    "left_thumb_proximal_joint",
+    "left_index_proximal_joint",
+    "left_middle_proximal_joint",
+    "left_ring_proximal_joint",
+    "left_pinky_proximal_joint",
+]
+r_ee_joint_name = [
+    "right_thumb_metacarpal_joint",
+    "right_thumb_proximal_joint",
+    "right_index_proximal_joint",
+    "right_middle_proximal_joint",
+    "right_ring_proximal_joint",
+    "right_pinky_proximal_joint",
+]
+
+[cam.camera_head]
+base_link = "/head_roll_link/cam_head"
+frequency = 30
+position = [0.0831, 0.0, 0.07262]
+orientation = [0.59623, 0.38015, -0.38015, -0.59623]
+focal_length = 1.93
+camera_matrix = [[458.7488, 0.0, 323.3297],
+                 [0.0, 458.8663, 240.6295],
+                 [0.0, 0.0, 1.0]]
+cam_resolution = [1280,720]
+cam_type="Orbbec_Gemini336"
+
+# If you want to enable other two cameras, please uncomment the corresponding sections.
+
+# [cam.camera_right_top]
+# base_link = "/head_roll_link/camera_right_top"
+# frequency = 30
+# position = [0.78767, -0.65497, 0.6]
+# orientation = [0.88219, 0.26028, -0.15568, 0.36022]
+# focal_length = 1.93
+# camera_matrix = [[458.7488, 0.0, 323.3297],
+#                  [0.0, 458.8663, 240.6295],
+#                  [0.0, 0.0, 1.0]]
+# cam_resolution = [1280,720]
+# cam_type="Orbbec_Gemini336"
+
+# [cam.camera_right]
+# base_link = "/head_roll_link/camera_right"
+# frequency = 30
+# position = [0.664, -0.730, -0.157]
+# orientation = [0.73102, 0.60692, -0.30117, 0.08099]
+# focal_length = 1.93
+# camera_matrix = [[458.7488, 0.0, 323.3297],
+#                  [0.0, 458.8663, 240.6295],
+#                  [0.0, 0.0, 1.0]]
+# cam_resolution = [1280,720]
+# cam_type="Orbbec_Gemini336"
+

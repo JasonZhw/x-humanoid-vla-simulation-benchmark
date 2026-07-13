@@ -34,9 +34,12 @@ def parse_args():
     )
     parser.add_argument("--zmq-recv-port", type=int, default=5556)
     parser.add_argument("--zmq-send-port", type=int, default=5557)
+    parser.add_argument("--sim-host", default="127.0.0.1",
+                        help="Organizer sim host to receive obs from "
+                             "(cross-machine eval; default same-machine 127.0.0.1)")
     parser.add_argument(
         "--task", default="",
-        help="Language task description (ignored by act)"
+        help="Language task description (published via ZMQ topic 'task' before inference)"
     )
     # ACT 参数
     parser.add_argument(
@@ -110,12 +113,21 @@ def run_inference_server():
 
     time.sleep(2)  # 等待仿真侧 ZMQ bind 完成
 
-    zmq_receiver  = ZmqReceiver(port=args.zmq_recv_port)
+    zmq_receiver  = ZmqReceiver(port=args.zmq_recv_port, host=args.sim_host)
     zmq_publisher = ZmqPublisher(port=args.zmq_send_port)
-    print(f"[runner] Ready — recv:{args.zmq_recv_port}  send:{args.zmq_send_port}")
+    print(f"[runner] Ready — recv:{args.sim_host}:{args.zmq_recv_port}  send:*:{args.zmq_send_port}")
 
     simulation_running = False
     robot_type = "brainco2"
+
+    # Publish task name to sim side, wait for task_cbd ack
+    print(f"[runner] Publishing task {args.task!r}, waiting for task_cbd...")
+    while True:
+        zmq_publisher.send_msg(args.task, topic=b"task")
+        result = zmq_receiver.receive_envelope(timeout=500)
+        if result is not None and str(result.get("topic", "")) == "task_cbd":
+            print("[runner] task_cbd received, starting inference loop")
+            break
 
     try:
         while True:

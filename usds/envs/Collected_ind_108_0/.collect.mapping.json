@@ -1,0 +1,23 @@
+{
+    "version": "1.0",
+    "file_records": [
+        {
+            "source_url": "/nfsroot/Embodied_AI/Object_assets/Object_assets_v1/From_Jianyuan/switch/orangeswitch_002_T1/resource/img/3fef927ac0d7a1ef1241157bfaf4161b.png",
+            "source_hash": "8b68c127567c258e61cebe672ba7453a1f7826af",
+            "target_url": "./Object_assets/Object_assets_v1/From_Jianyuan/switch/orangeswitch_002_T1/resource/img/3fef927ac0d7a1ef1241157bfaf4161b.png",
+            "target_hash": "f9889f02697872fde025f6514773d963d74d7175"
+        },
+        {
+            "source_url": "/nfsroot/Embodied_AI/Object_assets/Object_assets_v1/From_Jianyuan/switch/orangeswitch_002_T1/resource/img/ab675359fa4eed044e05aeed9db5c21f.png",
+            "source_hash": "33214f7f2a16ed90777eb98ae45556eb707d9784",
+            "target_url": "./Object_assets/Object_assets_v1/From_Jianyuan/switch/orangeswitch_002_T1/resource/img/ab675359fa4eed044e05aeed9db5c21f.png",
+            "target_hash": "353a13ec01ce6d6b295dc626b42d9d82b172b89b"
+        },
+        {
+            "source_url": "/nfsroot/Embodied_AI/Object_assets/Object_assets_v1/From_Jianyuan/container/red_tray_001_T1/resource/img/ab675359fa4eed044e05aeed9db5c21f.png",
+            "source_hash": "687e65bf8645e52092c86c53aeabb177d57646e7",
+            "target_url": "./Object_assets/Object_assets_v1/From_Jianyuan/container/red_tray_001_T1/resource/img/ab675359fa4eed044e05aeed9db5c21f.png",
+            "target_hash": "38bd99c47806875334cc7e620a6d0ccd30468daf"
+        }
+    ]
+}

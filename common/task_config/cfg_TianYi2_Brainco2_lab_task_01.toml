@@ -1,0 +1,22 @@
+[environment]
+# Spatial / Combined 条件：50 个 unseen 场景目录（task_manager 用 usd_selector 随机挑）
+usd_path_spatial  = "./usds/envs/Collected_lab_101_0"
+
+[robot]
+init_position = [-0.83, 0.0, 0.0]
+# [旧采集 home/init pose，肘关节非90度，已停用]
+# l_arm_home_pose = [0.258, 1.0, 0.155, -1.724, -0.084, -0.611, -0.071]
+# r_arm_home_pose = [0.258, -1.0, -0.155, -1.724, 0.084, -0.611, 0.071]
+# l_arm_init_pose = [1.813,0.225,-0.129,-1.824,-0.155,-0.403,-0.237]
+# r_arm_init_pose = [1.813,-0.225,0.129,-1.824,0.155,-0.403,0.237]
+# 适配肘关节90度的 home/init pose（已激活；reset 路径 0→init→home，避免碰撞）
+l_arm_home_pose = [-0.024, 0.211, 0.284, -1.44, 0.188, -0.120, -0.032]
+r_arm_home_pose = [-0.024, -0.211, -0.284, -1.44, -0.188, -0.120, 0.032]
+l_arm_init_pose = [1.813,1.2,0.5,-2.0,-0.155,-0.403,-0.237]
+r_arm_init_pose = [1.813,-1.2,-0.5,-2.0,0.155,-0.403,0.237]
+
+[isaac_config]
+headless = false
+
+[task]
+description = "Open the door of the balance with right arm"

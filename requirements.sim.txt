@@ -1,0 +1,10 @@
+# 仿真侧依赖 —— 装进 Isaac Sim 自带的 python（不是 §1 的训练环境！）:
+#   <你的IsaacSim路径>/python.sh -m pip install -r requirements.sim.txt
+# 版本与组织方环境一致。
+loguru==0.7.3
+psutil==5.9.8
+transforms3d==0.4.2
+h5py==3.16.0
+tomli==2.4.1
+pyzmq==27.1.0
+tqdm==4.68.3

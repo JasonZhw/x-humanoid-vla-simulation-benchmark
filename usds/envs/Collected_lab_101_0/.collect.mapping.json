@@ -1,0 +1,113 @@
+{
+    "version": "1.0",
+    "file_records": [
+        {
+            "source_url": "/nfsroot/Embodied_AI/Object_assets/Object_assets_v1/chemistry_lab_items/erlenmeyer150ml/omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_2_1/Base/Glass/Clear_Glass.mdl",
+            "source_hash": "01558c2a4c135919aef811b790f263dff9862db9",
+            "target_url": "./Object_assets/Object_assets_v1/chemistry_lab_items/erlenmeyer150ml/omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_2_1/Base/Glass/Clear_Glass.mdl",
+            "target_hash": "b3f851d212e5f65103b90a2b8305dbc47e496a03"
+        },
+        {
+            "source_url": "/nfsroot/Embodied_AI/Object_assets/Object_assets_v1/chemistry_lab_items/beaker250ml/omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_2_1/Base/Glass/Clear_Glass.mdl",
+            "source_hash": "ce4b046063cd4b2e881b559b2d0b069e9ce2eae6",
+            "target_url": "./Object_assets/Object_assets_v1/chemistry_lab_items/beaker250ml/omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_2_1/Base/Glass/Clear_Glass.mdl",
+            "target_hash": "0200941ddf54c52ded8a240087e72a530673f55d"
+        },
+        {
+            "source_url": "/nfsroot/Embodied_AI/Object_assets/Object_assets_v1/chemistry_lab_items/fume_hood_001_T1/omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_2_1/Base/Glass/Clear_Glass.mdl",
+            "source_hash": "f8bbf2359ffe011f417815e74becde106ed0159c",
+            "target_url": "./Object_assets/Object_assets_v1/chemistry_lab_items/fume_hood_001_T1/omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_2_1/Base/Glass/Clear_Glass.mdl",
+            "target_hash": "b3f851d212e5f65103b90a2b8305dbc47e496a03"
+        },
+        {
+            "source_url": "/nfsroot/Embodied_AI/Object_assets/Object_assets_v1/chemistry_lab_items/fume_hood_001_T1/omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_2_1/Base/Metals/Aluminum_Anodized.mdl",
+            "source_hash": "40139752b136695afb861cfeb711d0c8052dd5d1",
+            "target_url": "./Object_assets/Object_assets_v1/chemistry_lab_items/fume_hood_001_T1/omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_2_1/Base/Metals/Aluminum_Anodized.mdl",
+            "target_hash": "4f1b6ed958e07ed765ec8f809cfa3300314cda1b"
+        },
+        {
+            "source_url": "/nfsroot/Embodied_AI/Object_assets/Object_assets_v1/chemistry_lab_items/electronic_balance_001_T1/omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_2_1/Base/Glass/Clear_Glass.mdl",
+            "source_hash": "0a9b45d016811bccd1362fe8cc5d829d19ec5789",
+            "target_url": "./Object_assets/Object_assets_v1/chemistry_lab_items/electronic_balance_001_T1/omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_2_1/Base/Glass/Clear_Glass.mdl",
+            "target_hash": "b3f851d212e5f65103b90a2b8305dbc47e496a03"
+        },
+        {
+            "source_url": "/nfsroot/Embodied_AI/Object_assets/Object_assets_v1/chemistry_lab_items/electronic_balance_001_T1/resource/img/38dbd03f52f9aca45c9d755f971a19b7.png",
+            "source_hash": "459bf1857f8ca04d01c81287e73ffc10039745de",
+            "target_url": "./Object_assets/Object_assets_v1/chemistry_lab_items/electronic_balance_001_T1/resource/img/38dbd03f52f9aca45c9d755f971a19b7.png",
+            "target_hash": "76a4b4d63169964d040659268d7bcbd0fa400694"
+        },
+        {
+            "source_url": "/nfsroot/Embodied_AI/Object_assets/Object_assets_v1/chemistry_lab_items/electronic_balance_001_T1/resource/img/a826e6891fe0861fd0bc6bb01a4bb5b5.png",
+            "source_hash": "03bf1d2f5d7e1d1cc40dc55d15fbad4381279261",
+            "target_url": "./Object_assets/Object_assets_v1/chemistry_lab_items/electronic_balance_001_T1/resource/img/a826e6891fe0861fd0bc6bb01a4bb5b5.png",
+            "target_hash": "66f7505dec2b2dedfe4c250c63bde3afae0edac6"
+        },
+        {
+            "source_url": "/nfsroot/Embodied_AI/Building/2_chemistry_lab_room/resource/img/3a396d7b332dbf02759a6ac05db54f74.png",
+            "source_hash": "c965502e380b7e9f976f57d8823d8c596615de3b",
+            "target_url": "./Building/2_chemistry_lab_room/resource/img/3a396d7b332dbf02759a6ac05db54f74.png",
+            "target_hash": "28a7ffb106789099c8f3c0b012951880b62ca2f5"
+        },
+        {
+            "source_url": "/nfsroot/Embodied_AI/Building/2_chemistry_lab_room/resource/img/98174e78c1f4acf54d6f7506b14de5fc.png",
+            "source_hash": "3acb0ee13487fe0eec8164521c73dc794250e40c",
+            "target_url": "./Building/2_chemistry_lab_room/resource/img/98174e78c1f4acf54d6f7506b14de5fc.png",
+            "target_hash": "efbd25352ca88fa4d05c99800696e0572c4bd083"
+        },
+        {
+            "source_url": "/nfsroot/Embodied_AI/Building/2_chemistry_lab_room/resource/img/aa66f49974eb3e0ed059fd0a4133d41d.png",
+            "source_hash": "5504c4c0e121299010e96825714bb2b4b4361288",
+            "target_url": "./Building/2_chemistry_lab_room/resource/img/aa66f49974eb3e0ed059fd0a4133d41d.png",
+            "target_hash": "832140cd006b98aa041e0a7bc6f06bb54588430f"
+        },
+        {
+            "source_url": "/nfsroot/Embodied_AI/Object_assets/Object_assets_v1/chemistry_lab_items/bottle4/resource/img/530d80f717a53dd93dfd58460ffcd73b.png",
+            "source_hash": "0826cbe394787da976306da4f6d5b57369c8cb5d",
+            "target_url": "./Object_assets/Object_assets_v1/chemistry_lab_items/bottle4/resource/img/530d80f717a53dd93dfd58460ffcd73b.png",
+            "target_hash": "1e55a09153d61b9a220203863c32aec22c96cd44"
+        },
+        {
+            "source_url": "/nfsroot/Embodied_AI/Object_assets/Object_assets_v1/chemistry_lab_items/fume_hood_001_T1/D/\u5317\u4eac\u4eba\u5f62\u673a\u5668\u4eba\u4e2d\u5fc3/\u4e2d\u79d1\u5927\u4eea\u5668/\u4eea\u5668\u65b0\u589e3/fume_hood1/resource/img/6f14fac94897fa43f35bc2c03edc6a34.png",
+            "source_hash": "4d463273688dddfc628a557a589e504c0c64dd4e",
+            "target_url": "./Object_assets/Object_assets_v1/chemistry_lab_items/fume_hood_001_T1/D/\u5317\u4eac\u4eba\u5f62\u673a\u5668\u4eba\u4e2d\u5fc3/\u4e2d\u79d1\u5927\u4eea\u5668/\u4eea\u5668\u65b0\u589e3/fume_hood1/resource/img/6f14fac94897fa43f35bc2c03edc6a34.png",
+            "target_hash": "a98bf3d53c97cd200b492e2bde1a1d15eb2b6cc1"
+        },
+        {
+            "source_url": "/nfsroot/Embodied_AI/Object_assets/Object_assets_v1/chemistry_lab_items/fume_hood_001_T1/D/\u5317\u4eac\u4eba\u5f62\u673a\u5668\u4eba\u4e2d\u5fc3/\u4e2d\u79d1\u5927\u4eea\u5668/\u4eea\u5668\u65b0\u589e3/fume_hood1/resource/img/aefdeaa2254c5dbb4d94ea5f231d62c7.png",
+            "source_hash": "97977f5b26756b344b9d37c3369e601caa66d567",
+            "target_url": "./Object_assets/Object_assets_v1/chemistry_lab_items/fume_hood_001_T1/D/\u5317\u4eac\u4eba\u5f62\u673a\u5668\u4eba\u4e2d\u5fc3/\u4e2d\u79d1\u5927\u4eea\u5668/\u4eea\u5668\u65b0\u589e3/fume_hood1/resource/img/aefdeaa2254c5dbb4d94ea5f231d62c7.png",
+            "target_hash": "d82ea5772febabbc57134864dd6f6067bbfbb0db"
+        },
+        {
+            "source_url": "/nfsroot/Embodied_AI/Object_assets/Object_assets_v1/chemistry_lab_items/fume_hood_001_T1/D/\u5317\u4eac\u4eba\u5f62\u673a\u5668\u4eba\u4e2d\u5fc3/\u4e2d\u79d1\u5927\u4eea\u5668/\u4eea\u5668\u65b0\u589e3/fume_hood1/resource/img/bdc03c4334d76e567543ee6eb39f3e23.png",
+            "source_hash": "765dbd90e61ca7173d0a46ca8732ea5fc0b892ab",
+            "target_url": "./Object_assets/Object_assets_v1/chemistry_lab_items/fume_hood_001_T1/D/\u5317\u4eac\u4eba\u5f62\u673a\u5668\u4eba\u4e2d\u5fc3/\u4e2d\u79d1\u5927\u4eea\u5668/\u4eea\u5668\u65b0\u589e3/fume_hood1/resource/img/bdc03c4334d76e567543ee6eb39f3e23.png",
+            "target_hash": "a4cd5104c9a9c1f6271afbaef2311c94ebfa59b7"
+        },
+        {
+            "source_url": "/nfsroot/Embodied_AI/Object_assets/Object_assets_v1/chemistry_lab_items/beaker250ml/resource/img/f01c2151c9843f53c86aba7125c2219e.png",
+            "source_hash": "f4ecaa3dcb2e581763d43327d4b1a2f119328903",
+            "target_url": "./Object_assets/Object_assets_v1/chemistry_lab_items/beaker250ml/resource/img/f01c2151c9843f53c86aba7125c2219e.png",
+            "target_hash": "7e1e803b4731071cca9d6de1dffd20f8190093b0"
+        },
+        {
+            "source_url": "/nfsroot/Embodied_AI/Object_assets/Object_assets_v1/chemistry_lab_items/fume_hood_001_T1/omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_2_1/Base/Metals/Aluminum_Anodized/Aluminum_Anodized_BaseColor.png",
+            "source_hash": "d1fb65ba1690c12a205b0e76d14278d900f7b3c2",
+            "target_url": "./Object_assets/Object_assets_v1/chemistry_lab_items/fume_hood_001_T1/omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_2_1/Base/Metals/Aluminum_Anodized/Aluminum_Anodized_BaseColor.png",
+            "target_hash": "c3e71835044e56282a69f69b4ae0ff4e0296a11a"
+        },
+        {
+            "source_url": "/nfsroot/Embodied_AI/Object_assets/Object_assets_v1/chemistry_lab_items/fume_hood_001_T1/omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_2_1/Base/Metals/Aluminum_Anodized/Aluminum_Anodized_ORM.png",
+            "source_hash": "94dc0a3afd5156138302fe74e60385f1a930fb7c",
+            "target_url": "./Object_assets/Object_assets_v1/chemistry_lab_items/fume_hood_001_T1/omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_2_1/Base/Metals/Aluminum_Anodized/Aluminum_Anodized_ORM.png",
+            "target_hash": "660dcd1deaaa8f9f7eb8112133eaba397b0493c8"
+        },
+        {
+            "source_url": "/nfsroot/Embodied_AI/Object_assets/Object_assets_v1/chemistry_lab_items/fume_hood_001_T1/omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_2_1/Base/Metals/Aluminum_Anodized/Aluminum_Anodized_Normal.png",
+            "source_hash": "4136e79353eba4ab2a2bc5503002f535073f7c00",
+            "target_url": "./Object_assets/Object_assets_v1/chemistry_lab_items/fume_hood_001_T1/omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/2023_2_1/Base/Metals/Aluminum_Anodized/Aluminum_Anodized_Normal.png",
+            "target_hash": "ffb9f0bd0f6ed52621855652367275926c52b7d2"
+        }
+    ]
+}

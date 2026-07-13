@@ -1,0 +1,21 @@
+[environment]
+usd_path_spatial  = "./usds/envs/Collected_ind_107_0"
+
+[robot]
+init_position = [-0.83, 0.0, 0.0]
+# [旧采集 home/init pose，肘关节非90度，已停用]
+# l_arm_home_pose = [0.258, 1.0, 0.155, -1.724, -0.084, -0.611, -0.071]
+# r_arm_home_pose = [0.258, -1.0, -0.155, -1.724, -0.084, -0.611, 0.071]
+# l_arm_init_pose = [-0.0755696, 1.57, 0.15360643, -0.0, -0.12806451, -0.61225766, -0.6118263]
+# r_arm_init_pose = [0.0755696, -1.57, -0.15360643, -0.0, -0.12806451, -0.61225766, 0.6118263]
+# 适配肘关节90度的 home/init pose（已激活；reset 路径 0→init→home，避免碰撞）
+l_arm_home_pose = [-0.323, 0.305, 0.097, -1.512, 0.066, -0.027, -0.003]
+r_arm_home_pose = [-0.323, -0.305, -0.097, -1.512, -0.066, 0.027, -0.003]
+l_arm_init_pose = [-0.0755696, 1.57, 0.4, -1.0, -0.12806451, -0.61225766, -0.6118263]
+r_arm_init_pose = [0.0755696, -1.57, -0.4, -1.0, -0.12806451, -0.61225766, 0.6118263]
+
+[isaac_config]
+headless = false
+
+[task]
+description = "Put the switches into the basket with both arms"

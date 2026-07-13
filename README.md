@@ -68,9 +68,10 @@ Outputs in `checkpoints/<task>_act/`: `policy_last.ckpt` (used by inference by d
 python3 tools/policy_infer.py --policy act \
     --model-path checkpoints/ind_task_01_act/policy_last.ckpt \
     --zmq-recv-port 5556 --zmq-send-port 5557
+    --task ind_task_01
 ```
 
-When ready it prints `[runner] Ready — recv:5556  send:5557`. ZMQ binds `127.0.0.1` (the inference server and the simulation must be mutually reachable on the same host; the exact deployment follows the organizer's instructions). Training and inference resolution must match (default 320×240); the task is resolved automatically from `dataset_stats.pkl`, so no task name is needed.
+When ready it prints `[runner] Ready — recv:127.0.0.1:5556  send:*:5557`. By default it talks to a simulation on the same host (`127.0.0.1`); to point at a remote organizer simulation, add `--sim-host <organizer-ip>` (your action port is published on all interfaces). Training and inference resolution must match (default 320×240); the task is resolved automatically from `dataset_stats.pkl`, so no task name is needed. The `--task` argument specifies the task name and instructs the remote organizer simulation which task to run for evaluation; task names are listed in [Section 6](#6-the-5-tasks).
 
 ## 5. ZMQ contract (read this for custom algorithms)
 
@@ -153,6 +154,21 @@ The runner automatically splits the 26-dim vector returned by your `infer` into 
 
 **Option B — write your own inference server**: independent of this repo's code; just follow this section's ZMQ contract — receive `obs` on port 5556, send `action` on 5557, handle the handshake (the simulation first sends `test` to warm up → `start` → the `obs`/`action` loop → `reset`), send actions back as `{left_arm[7], left_hand[6], right_arm[7], right_hand[6]}`, with a monotonically increasing `step_id`.
 
+**Task name handshake**: Before the main inference loop begins, your server should publish the task name (passed via `--task` argument) and wait for the simulator's acknowledgment (`task_cbd` topic). This ensures both sides are synchronized on which task to run. For a complete implementation, see [tools/policies/runner.py](tools/policies/runner.py):
+
+```python
+# Publish task name to sim side, wait for task_cbd ack
+print(f"[runner] Publishing task {args.task!r}, waiting for task_cbd...")
+while True:
+    zmq_publisher.send_msg(args.task, topic=b"task")
+    result = zmq_receiver.receive_envelope(timeout=500)
+    if result is not None and str(result.get("topic", "")) == "task_cbd":
+        print("[runner] task_cbd received, starting inference loop")
+        break
+```
+
+This handshake guarantees that the simulator has initialized the correct task before you begin receiving observations.
+
 ## 6. The 5 tasks
 
 > Each task provides 50 scenarios; evaluation picks them by a random seed (reproducible, identical for all contestants).
@@ -164,3 +180,46 @@ The runner automatically splits the 26-dim vector returned by your `infer` into 
 | `ind_task_03` | Pick up the switch with the left hand, transfer it to the right hand, and place it into the red tray. | ![ind_task_03](assets/ind_108.png) |
 | `lab_task_01` | Use the right arm to open the door of the electronic balance. | ![lab_task_01](assets/lab_101.png) |
 | `lab_task_03` | Use the right arm to close the door of the electronic balance. | ![lab_task_03](assets/lab_103.png) |
+
+## 7. Local simulation visualization (optional): watch your policy run
+
+You can run your policy inside the same simulation used by the challenge — locally, on your own machine — and watch it act in the 5 tasks, either live in a GUI window or as per-episode mp4 videos. This is visualization only: there is no scoring output; episodes run for a fixed duration (`--timeout`, default 300 s) and then move on. The official evaluation is run by the organizer.
+
+**Requirements**: [Isaac Sim](https://developer.nvidia.com/isaac/sim) 5.1 (RTX GPU required). The GUI window needs a machine with a display; on a headless server use `--headless` and watch the videos instead.
+
+**One-time setup**:
+
+```bash
+# 1) Point the config to your Isaac Sim install (edit the file):
+#    common/isaac_config.toml  ->  python_path = "/path/to/your/isaacsim/python.sh"
+# 2) Install simulation deps INTO Isaac's bundled python (not your training env):
+/path/to/your/isaacsim/python.sh -m pip install -r requirements.sim.txt
+```
+
+**Run** (from the repo root; needs a trained checkpoint from §3):
+
+```bash
+bash tools/run_sim_local.sh --task ind_task_01 --ckpt checkpoints/ind_task_01_act/policy_last.ckpt
+# headless server: add --headless, then watch logs/task_videos/*.mp4
+# options: --loop 3 (episodes) --seed 0 (scene sampling) --timeout 300 (seconds per episode) --no-video (skip mp4 recording)
+```
+
+The script starts the simulator and your inference server; they handshake on the task name (§5), then episodes run with scenes sampled from the task's 50 scenarios. A video of every episode is saved to `logs/task_videos/`.
+
+**Under the hood** (the two processes the script manages, for debugging):
+
+```bash
+# terminal 1 — simulator (waits for the task name over ZMQ, GUI unless --headless):
+/path/to/isaacsim/python.sh benchmark.py --loop 3 --seed 0
+# terminal 2 — your inference server (announces the task, then serves actions):
+python3 tools/policy_infer.py --policy act --model-path <ckpt> --task ind_task_01
+```
+
+**FAQ**
+
+- *Port 5556/5557 already in use*: a previous run left processes behind — `pkill -f benchmark.py; pkill -f policy_infer.py` and retry.
+- *Stuck at "waiting for task_cbd"*: rare startup race — Ctrl-C and rerun the script.
+- *No GUI window appears*: check the machine has a display (`echo $DISPLAY`); otherwise use `--headless` + videos.
+- *First episode is slow*: Isaac Sim takes 1–3 minutes to load; later episodes are faster.
+- *Robot model file*: shipped compressed (`usds/tianyi_2_6d_force_brainco2_hand_v1/*.usd.gz`, due to GitHub's 100 MB file limit); the script auto-extracts it on first run. For manual two-terminal use, run `gunzip -k usds/tianyi_2_6d_force_brainco2_hand_v1/*.usd.gz` once first.
+- *The robot keeps standing after finishing the task*: expected — locally each episode runs the full `--timeout` and then resets.

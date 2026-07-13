@@ -5,13 +5,13 @@ import zmq
 from common.logger_loader import logger
 
 class ZmqPublisher(object):
-    def __init__(self, port, NUM_SNDHWM=1):
+    def __init__(self, port, NUM_SNDHWM=1, host="0.0.0.0"):
         context = zmq.Context()
         self.socket = context.socket(zmq.PUB)
         self.socket.setsockopt(zmq.LINGER, 0)
         self.socket.setsockopt(zmq.SNDHWM, NUM_SNDHWM)
-        self.socket.bind(f"tcp://127.0.0.1:{port}")
-        print(f"ZmqPublisher bind to port {port}")
+        self.socket.bind(f"tcp://{host}:{port}")
+        print(f"ZmqPublisher bind to {host}:{port}")
 
     def send_msg(self, data: Any, topic: bytes, episode_id: int = 0, step_id: int = 0, timestamp: Optional[float] = None):
         topic_value = topic.decode("utf-8") if isinstance(topic, (bytes, bytearray)) else str(topic)
@@ -40,13 +40,13 @@ class ZmqPublisher2Xrocs(object):
         logger.info(f"Received reply: {reply.decode()}")
 
 class ZmqReceiver(object):
-    def __init__(self, port, NUM_RCVHWM=1):
+    def __init__(self, port, NUM_RCVHWM=1, host="127.0.0.1"):
         context = zmq.Context()
         self.socket = context.socket(zmq.SUB)
         self.socket.setsockopt(zmq.RCVHWM, NUM_RCVHWM)
         self.socket.setsockopt(zmq.SUBSCRIBE, b"")
-        self.socket.connect(f"tcp://127.0.0.1:{port}")
-        print(f"ZmqReceiver connected to port {port}, subscribing to all topics")
+        self.socket.connect(f"tcp://{host}:{port}")
+        print(f"ZmqReceiver connected to {host}:{port}, subscribing to all topics")
         self._latest_step_by_episode: dict[int, int] = {}
         self.discarded_old_action_count = 0
 
@@ -146,3 +146,14 @@ class ZmqReceiver(object):
     def close(self):
         self.socket.close()
         print("ZmqReceiver socket closed")
+
+
+def eval_endpoints_from_env():
+    """组织方 sim 侧跨机评测端点配置(从环境变量读,带同机默认)。
+    返回 (obs_port, action_port, infer_host)。
+    EVAL_OBS_PORT / EVAL_ACTION_PORT / EVAL_INFER_HOST 未设时 = (5556, 5557, '127.0.0.1')。"""
+    import os
+    obs_port = int(os.environ.get("EVAL_OBS_PORT", 5556))
+    action_port = int(os.environ.get("EVAL_ACTION_PORT", 5557))
+    infer_host = os.environ.get("EVAL_INFER_HOST", "127.0.0.1")
+    return obs_port, action_port, infer_host
